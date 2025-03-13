@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nest_balance/src/presentations/presentations.dart';
+import 'package:nest_balance/src/core/navigator/app_router.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class App extends StatelessWidget {
@@ -7,10 +7,12 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appRouter = AppRouter.router;
     return ResponsiveSizer(
-      builder: (p0, p1, p2) => MaterialApp(
+      builder: (p0, p1, p2) => MaterialApp.router(
         debugShowCheckedModeBanner: false,
-        home: SplashView(),
+        theme: ThemeData.dark(),
+        routerConfig: appRouter,
       ),
     );
   }
